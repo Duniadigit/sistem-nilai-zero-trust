@@ -52,7 +52,7 @@ Kredensial service (untuk `POST /auth/service`): `client_id = service-nilai`, `c
 
 Header wajib pada request user: `Authorization: Bearer <token>` dan `X-Device-ID: <device>`.
 
-## 5. Mengubah jam akses (untuk demo)
+## 5. Mengubah jam akses
 Di `.env`:
 ```
 ACCESS_HOUR_START=7
@@ -61,7 +61,7 @@ ACCESS_HOUR_END=21
 Perubahan dan finalisasi nilai hanya diizinkan pada rentang itu (jam komputer). Untuk mendemokan penolakan, ubah jadi `0` dan `0`, lalu restart `npm start`. Untuk menonaktifkan pembatasan, pakai `0` dan `24`.
 Pastikan zona waktu Windows sudah WIB.
 
-## 6. Peta kebutuhan -> kode (untuk video demo)
+## 6. Peta kebutuhan -> kode
 | Kebutuhan | File / bagian |
 |---|---|
 | 4.1 Access token JWT 10 menit (`sub`, `role`) | `gateway/auth.js` -> `signAccess`, route `/login` |
