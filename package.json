@@ -1,0 +1,24 @@
+{
+  "name": "sistem-nilai-zero-trust",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sistem Nilai - Tugas Praktikum Zero Trust Security",
+  "scripts": {
+    "setup": "node database/setup.js",
+    "gateway": "node gateway/index.js",
+    "nilai": "node service-nilai/index.js",
+    "transkrip": "node service-transkrip/index.js",
+    "start": "concurrently -k -n gateway,nilai,transkrip -c blue,green,yellow \"npm:gateway\" \"npm:nilai\" \"npm:transkrip\""
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "http-proxy-middleware": "^3.0.3",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.11.0"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
