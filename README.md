@@ -79,20 +79,3 @@ Pastikan zona waktu Windows sudah WIB.
 
 Lihat audit log di Laragon (HeidiSQL/phpMyAdmin): `SELECT * FROM audit_log ORDER BY id DESC;`
 
-## 7. Saran alur video demo (6-9 menit)
-1. (0:30) Arsitektur singkat, `npm start`, tampilkan tabel seed.
-2. (1:30) Autentikasi: login berhasil, device salah ditolak, refresh, token service, logout lalu refresh ditolak. Tunjukkan `gateway/auth.js`.
-3. (2:00) Gateway sebagai PEP: tunjukkan `pep()` di `gateway/index.js` dan `policy.js`. Demo mahasiswa melihat nilai orang lain (deny), dosen mengubah kelas dosen lain (deny).
-4. (1:30) Konteks: device milik orang lain (deny); ubah jam akses di `.env` lalu PUT ditolak.
-5. (1:30) Finalisasi kelas 1 -> sinkron transkrip lewat gateway; mahasiswa melihat transkrip; token user ke `/transkrip/sinkron` ditolak.
-6. (1:00) Bypass: akses langsung `:3001` ditolak; `X-Gateway-Secret` tanpa token tetap ditolak. Tunjukkan `common/guard.js`.
-7. (0:30) Tunjukkan isi tabel `audit_log`.
-
-## 8. Masalah umum
-| Gejala | Solusi |
-|---|---|
-| `ECONNREFUSED 127.0.0.1:3306` | MySQL Laragon belum Start All |
-| `Access denied for user 'root'` | Isi `DB_PASSWORD` di `.env` sesuai Laragon |
-| `EADDRINUSE` port 3000/3001/3002 | Ada proses lain; hentikan atau ubah port di `.env` |
-| Postman 401 "token kedaluwarsa" | Access token hanya 10 menit; jalankan ulang request login |
-| Finalisasi ditolak "di luar jam akses" | Atur `ACCESS_HOUR_START/END` di `.env`, restart |
